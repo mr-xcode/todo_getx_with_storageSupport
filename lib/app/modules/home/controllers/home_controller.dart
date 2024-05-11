@@ -8,7 +8,7 @@ class HomeController extends GetxController {
   void onInit() {
     List? storedTodos = GetStorage().read<List>('todos');
 
-    if (storedTodos!.isNotEmpty) {
+    if (storedTodos != null) {
       todoList = storedTodos.map((e) => Todo.fromJson(e)).toList().obs;
     }
     ever(todoList, (_) {

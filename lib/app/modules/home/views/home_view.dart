@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:todo_getx_withstorage/app/data/todo_model.dart';
-import 'package:todo_getx_withstorage/app/modules/add_todo/views/add_todo_view.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -24,11 +23,11 @@ class HomeView extends GetView<HomeController> {
         onPressed: () {
           Get.toNamed('add-todo', arguments: '999');
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       body: Obx(() {
         return Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: ListView.builder(
               itemCount: controller.todoList.length,
               itemBuilder: (context, index) {
@@ -43,14 +42,14 @@ class HomeView extends GetView<HomeController> {
                         onPressed: () {
                           controller.todoList.insert(index, temp);
                         },
-                        child: Icon(Icons.restore),
+                        child: const Icon(Icons.restore),
                       ),
                     );
                   },
                   onTap: () {
                     Get.dialog(
                       AlertDialog(
-                        title: Text('Edit:'),
+                        title: const Text('Edit:'),
                         content: TextField(
                           controller: teditController,
                           decoration: InputDecoration(
@@ -60,7 +59,7 @@ class HomeView extends GetView<HomeController> {
                         ),
                         actions: [
                           TextButton(
-                            child: Text('OK'),
+                            child: const Text('OK'),
                             onPressed: () {
                               var changed = controller.todoList[index];
                               changed.title = teditController.text;
@@ -85,13 +84,13 @@ class HomeView extends GetView<HomeController> {
                   title: Text(
                     controller.todoList[index].title.toString(),
                     style: (controller.todoList[index].isDone)
-                        ? TextStyle(
+                        ? const TextStyle(
                             decoration: TextDecoration.lineThrough,
                             color: Colors.red,
                           )
-                        : TextStyle(color: Colors.green),
+                        : const TextStyle(color: Colors.green),
                   ),
-                  trailing: Icon(Icons.chevron_right),
+                  trailing: const Icon(Icons.chevron_right),
                 );
               }),
         );

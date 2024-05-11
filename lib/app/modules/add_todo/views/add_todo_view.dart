@@ -15,7 +15,7 @@ class AddTodoView extends GetView<AddTodoController> {
     final homeController = Get.put(HomeController());
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: Colors.white),
         title: const Text(
           'AddTodoView',
           style: TextStyle(color: Colors.white),
@@ -25,14 +25,14 @@ class AddTodoView extends GetView<AddTodoController> {
       ),
       body: Container(
         color: Colors.grey[200],
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
             Expanded(
               child: TextField(
                 autofocus: true,
                 controller: controller.titleController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   label: Text('Task:'),
                   border: InputBorder.none,
                 ),
@@ -45,8 +45,8 @@ class AddTodoView extends GetView<AddTodoController> {
                   onPressed: () {
                     return Get.back();
                   },
-                  child: Text("Cancel"),
                   color: GFColors.WARNING,
+                  child: const Text("Cancel"),
                 ),
                 GFButton(
                   onPressed: () {
@@ -61,7 +61,7 @@ class AddTodoView extends GetView<AddTodoController> {
                     }
                   },
                   color: GFColors.SUCCESS,
-                  child: Text('Add'),
+                  child: const Text('Add'),
                 ),
               ],
             ),
